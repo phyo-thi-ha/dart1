@@ -1,23 +1,29 @@
-class Student {
-  String? name;
-  int? age;
-  int? rollNumber;
-  Student(this.name, this.age);
+class Employee {
+  int? _id;
+  String? _name;
 
-  Student.defaultConstructor() {
-    print("This is a default constructor");
+  int getId() {
+    return _id!;
   }
 
-  Student.namedConstructor(String name, int age, int rollNumber) {
-    this.name = name;
-    this.age = age;
-    this.rollNumber = rollNumber;
+  String getName() {
+    return _name!;
+  }
+
+  void setId(int id) {
+    _id = id;
+  }
+
+  void setName(String name) {
+    _name = name;
   }
 }
 
 void main() {
-  Student student = Student.namedConstructor("Jhon", 20, 123);
-  print("Name: ${student.name}");
-  print("Age: ${student.age}");
-  print("Roll Number: ${student.rollNumber}");
+  Employee emp = Employee();
+  emp.setId(1);
+  emp.setName("John Doe");
+
+  print("Employee ID: ${emp.getId()}");
+  print("Employee Name: ${emp.getName()}");
 }
