@@ -1,29 +1,21 @@
-class Employee {
-  int? _id;
-  String? _name;
-
-  int getId() {
-    return _id!;
-  }
-
-  String getName() {
-    return _name!;
-  }
-
-  void setId(int id) {
-    _id = id;
-  }
-
-  void setName(String name) {
-    _name = name;
+mixin canFly {
+  void fly() {
+    print("I can fly");
   }
 }
 
-void main() {
-  Employee emp = Employee();
-  emp.setId(1);
-  emp.setName("John Doe");
+mixin canWalk {
+  void walk() {
+    print("I can walk");
+  }
+}
 
-  print("Employee ID: ${emp.getId()}");
-  print("Employee Name: ${emp.getName()}");
+class Bird with canFly, canWalk {
+  // Bird class can use both canFly and canWalk mixins
+}
+
+void main() {
+  var bird = Bird();
+  bird.fly();
+  bird.walk();
 }
